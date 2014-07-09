@@ -1,0 +1,127 @@
+{% extends "::base.html.twig"%}
+
+{% block stylesheets %}
+    {{parent()}}
+    <link type="text/css" rel="stylesheet" href="{{asset("css/datepicker.css")}}"/>
+    <style>
+        .tbody td{
+            padding: 5px;
+
+        }
+        .thead th{
+            padding: 5px;
+        }
+        .consulta td{
+            padding: 5px;
+        }
+    </style>
+
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row clearfix">
+            <legend style="margin-bottom: 20px;">Histórico</legend>
+            <div class=" column">
+                <form class="form-type" role="form">
+                    <table class="consulta">
+                        <tr>
+                            <td>
+                                <label>Nome</label>
+                                <input type="text" id="nome" name="nome" class="form-control" placeholder=".col-xs-2">
+                            </td>
+                            <td>
+                                <label>Codigo do Ofício</label>
+                                <input type="text" id="cod_oficio" name="cod_oficio" class="form-control" placeholder=".col-sm-2">
+                            </td>
+                            <td>
+                                <button style="margin-top: 26px;" id="consultar" 
+                                        type="button" class="btn btn-primary">Consultar</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="margin-top: 18px;" class="hitorico">
+                        <thead class="thead">
+                            <tr>
+                                <th>
+                                    <label>C. Ofício</label>
+                                </th> 
+                                <th>
+                                    <label>Data Saída</label>
+                                </th> 
+                                <th>
+                                    <label>Data Recebida</label>
+                                </th>
+                                <th>
+                                    <label>Secretaria</label>
+                                </th> 
+                                <th>
+                                    <label>Descrição</label>
+                                </th> 
+                            </tr>
+                        </thead>
+                        <tbody class="tbody" id="tbody">
+                            <tr id="linha_1">
+                                <td style="width: 120px;">
+                                    <input type="text" id="codigo" class="form-control" placeholder=".col-xs-2">
+                                </td>
+                                <td style="width: 120px;">
+                                    <input type="text" id="data_saida" class="form-control datepicker" placeholder=".col-xs-3">
+                                </td>
+                                <td style="width: 120px;">
+                                    <input type="text" id="data_retorno" class="form-control datepicker" placeholder=".col-xs-4">
+                                </td>
+                                <td style="width: 135px;">
+                                    <select id="secretaria">
+                                        <option value="">Selecionar</option>
+                                    </select>
+                                </td>
+                                <td style="width: 220px;">
+                                    <input type="text" id="descricao" class="form-control" placeholder=".col-xs-4">
+                                </td>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="radio" name="status" id="status" value="1"> Deferido
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox-inline">
+                                        <input type="radio" name="status"  id="status" value="2"> Indeferido
+                                    </label>
+                                </td>
+                                <td>
+                                    <button style="margin-left: 10px;" id="gravar" 
+                                            type="button" class="btn btn-primary">Gravar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>
+                                    <button style="margin-left: 4px;" id="adicionar" 
+                                            type="button" class="btn btn-primary">Adicionar</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </form>
+            </div>
+            <div class="col-md-4 column">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    <script type="text/javascript" src="{{asset("js/bootstrap-datepicker.js")}}" ></script>
+    <script type="text/javascript" src="{{asset("bundles/besttecsad/js/sadjs.js")}}" ></script>
+    <script type="text/javascript">
+        $('.datepicker').datepicker();
+
+
+
+        ///jQuery('body').rotas(urls);
+
+    </script>
+{%endblock%}

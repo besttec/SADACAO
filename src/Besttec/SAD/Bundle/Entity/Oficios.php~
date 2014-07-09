@@ -1,0 +1,53 @@
+<?php
+
+namespace Besttec\SAD\Bundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Oficios
+ *
+ * @ORM\Table(name="oficios")
+ * @ORM\Entity
+ */
+class Oficios
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="num_oficio", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $numOficio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="data_cricao_oficio", type="string", length=45, nullable=false)
+     */
+    private $dataCricaoOficio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descricao", type="text", nullable=false)
+     */
+    private $descricao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="remetente", type="string", length=45, nullable=true)
+     */
+    private $remetente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="destinatario", type="string", length=45, nullable=true)
+     */
+    private $destinatario;
+
+
+}

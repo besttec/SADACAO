@@ -1,0 +1,83 @@
+<?php
+
+namespace Besttec\SAD\Bundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Historicos
+ *
+ * @ORM\Table(name="historicos", indexes={@ORM\Index(name="fk_historicos_oficios1", columns={"oficios_num_oficio"}), @ORM\Index(name="fk_historicos_secretarias1", columns={"secretarias_id_secretaria"}), @ORM\Index(name="fk_historicos_usuarios1", columns={"usuarios_id_usuario"})})
+ * @ORM\Entity
+ */
+class Historicos
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_historico", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idHistorico;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="data_saida", type="date", nullable=false)
+     */
+    private $dataSaida;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="data_retorno", type="date", nullable=true)
+     */
+    private $dataRetorno;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descricao", type="text", nullable=false)
+     */
+    private $descricao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=20, nullable=false)
+     */
+    private $status;
+
+    /**
+     * @var \Usuarios
+     *
+     * @ORM\ManyToOne(targetEntity="Usuarios")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="usuarios_id_usuario", referencedColumnName="id_usuario")
+     * })
+     */
+    private $usuariosUsuario;
+
+    /**
+     * @var \Oficios
+     *
+     * @ORM\ManyToOne(targetEntity="Oficios")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="oficios_num_oficio", referencedColumnName="num_oficio")
+     * })
+     */
+    private $oficiosNumOficio;
+
+    /**
+     * @var \Secretarias
+     *
+     * @ORM\ManyToOne(targetEntity="Secretarias")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="secretarias_id_secretaria", referencedColumnName="id_secretaria")
+     * })
+     */
+    private $secretariasSecretaria;
+
+
+}

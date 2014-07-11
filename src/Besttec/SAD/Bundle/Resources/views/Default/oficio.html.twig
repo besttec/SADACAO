@@ -1,0 +1,50 @@
+{% block stylesheets %}
+<link type="text/css" rel="stylesheet" href="{{asset("")}}"/>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    body{
+        background-color: #e3e3e3; 
+    }
+    #div{
+        width:660px; /* Tamanho da Largura da Div */
+        height:870px; /* Tamanho da Altura da Div */
+        position:absolute; 
+        left:50%;
+        margin-left:-330px; /* ou seja ele pega 50% da largura tela e diminui  metade do valor da largura no caso 250 */
+        background-color:#fff;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    table, td, th {
+        border: 1px solid black;
+    }
+    td{
+        padding: 3px;
+    }
+
+</style>
+{% endblock %}
+
+<body>
+
+        <div id="div">
+            <center>
+                <img src="{{asset("bundles/besttecsad/imagens/logo.png")}}" width="300" height="150"/><br/><br/>
+                <h3>Comprovante de Inscrição - Passe Livre</h3><br/><br/>
+            </center>
+            <table>
+                
+            </table>
+            <center>
+                <img style="margin-top: 67px;" 
+                     src="{{asset("bundles/besttecsad/imagens/rodape.png")}}" width="300" height="50"/>
+            </center>
+        </div>
+
+</body>

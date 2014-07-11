@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Historicos" table="historicos">
+    <indexes>
+      <index name="fk_historicos_oficios1" columns="oficios_num_oficio"/>
+      <index name="fk_historicos_secretarias1" columns="secretarias_id_secretaria"/>
+      <index name="fk_historicos_usuarios1" columns="usuarios_id_usuario"/>
+    </indexes>
+    <id name="idHistorico" type="integer" column="id_historico">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="dataSaida" type="date" column="data_saida" nullable="false"/>
+    <field name="dataRetorno" type="date" column="data_retorno" nullable="true"/>
+    <field name="descricao" type="text" column="descricao" nullable="false"/>
+    <field name="status" type="string" column="status" length="20" nullable="false"/>
+    <many-to-one field="secretariasSecretaria" target-entity="Secretarias">
+      <join-columns>
+        <join-column name="secretarias_id_secretaria" referenced-column-name="id_secretaria"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="oficiosNumOficio" target-entity="Oficios">
+      <join-columns>
+        <join-column name="oficios_num_oficio" referenced-column-name="num_oficio"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="usuariosUsuario" target-entity="Usuarios">
+      <join-columns>
+        <join-column name="usuarios_id_usuario" referenced-column-name="id_usuario"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

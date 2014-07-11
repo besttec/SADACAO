@@ -1,0 +1,21 @@
+homepage:
+    pattern:  /
+    defaults: { _controller: BesttecSADBundle:Default:index }
+    
+novooficio:
+    pattern:  /novooficio
+    defaults: { _controller: BesttecSADBundle:Default:novooficio }
+    
+salvaroficio:
+    pattern:  /salvaroficio
+    defaults: { _controller: BesttecSADBundle:Default:salvaroficio }
+    methods: [POST]
+    
+historico:
+    pattern:  /historico
+    defaults: { _controller: BesttecSADBundle:Default:historico }
+    
+geraroficio:
+    pattern:  /geraroficio
+    defaults: { _controller: BesttecSADBundle:Default:geraroficio }
+    methods: [POST]

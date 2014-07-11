@@ -1,0 +1,3 @@
+besttec_sad:
+    resource: "@BesttecSADBundle/Resources/config/routing.yml"
+    prefix:   /
